@@ -1,0 +1,26 @@
+# Кейс cfd2d: задача Сода (ударная труба) из файла .cfd
+# Прямоугольная область [0,1]x[0,0.2], диафрагма при x=0.5.
+[case]
+name = Сод из .cfd
+
+[mesh]
+type = rect
+Lx = 1.0
+Ly = 0.2
+nx = 200
+ny = 40
+
+[solver]
+mode = transient
+cfl = 0.4
+order = 2
+mach = 0.0
+
+[bc]
+left = transmissive
+right = transmissive
+bottom = slipwall
+top = slipwall
+
+[init]
+type = sod

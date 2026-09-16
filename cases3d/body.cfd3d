@@ -1,0 +1,29 @@
+# 3D-задача CFD: тело в потоке
+[case]
+name = Тело в потоке
+desc = Сфера в равномерном набегающем потоке вдоль +x (вход xmin, M=0.5).\nВидны торможение перед телом, область покоя внутри и след за телом.
+
+[domain]
+Lx = 2.0
+Ly = 1.0
+Lz = 1.0
+nx = 64
+ny = 32
+nz = 32
+physLengthM = 1.0
+sliceAxis = 2
+
+[flow]
+inflowMach = 0.5
+
+[bc]
+xmin = inflow
+xmax = transmissive
+ymin = slipwall
+ymax = slipwall
+zmin = slipwall
+zmax = slipwall
+
+[objects]
+count = 1
+obj0 = kind=sphere cx=0.6 cy=0.5 cz=0.5 r=0.18

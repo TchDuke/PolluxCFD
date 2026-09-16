@@ -1,0 +1,29 @@
+# 3D-задача CFD: КОМБИНИРОВАННАЯ — поток + вращение (эффект Магнуса)
+[case]
+name = Поток + вращающийся цилиндр
+desc = Комбинированная задача: набегающий поток (M=0.3 вдоль +x) обтекает ВРАЩАЮЩИЙСЯ\nцилиндр (20000 об/мин). Вращение увлекает пограничный слой -> асимметричный след\nи поперечная сила (эффект Магнуса). Поток и вращение действуют одновременно.
+
+[domain]
+Lx = 2.0
+Ly = 1.0
+Lz = 1.0
+nx = 64
+ny = 32
+nz = 32
+physLengthM = 0.3
+sliceAxis = 2
+
+[flow]
+inflowMach = 0.3
+
+[bc]
+xmin = inflow
+xmax = transmissive
+ymin = slipwall
+ymax = slipwall
+zmin = slipwall
+zmax = slipwall
+
+[objects]
+count = 1
+obj0 = kind=cylinder cx=0.6 cy=0.5 cz=0.5 r=0.12 h=0.5 rpm=20000 ax=0 ay=0 az=1

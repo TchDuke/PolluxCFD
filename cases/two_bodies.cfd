@@ -1,0 +1,22 @@
+[case]
+name=Брусок 25° + цилиндр M=2 (.cfd)
+desc=Задача обтекания потоком двух тел, одно из которых помещено в аэродинамическую тень другого тела.
+
+[geometry]
+Lx=2.6
+Ly=1.4
+unit=м
+shapes=2
+shape0=box 0.75 0.7 0.45 0.22 25
+shape1=circle 1.7 0.7 0.18
+refine=0
+
+[solver]
+mode=steady
+cfl=0.4
+order=2
+mach=2
+density=5
+viscous=1
+mu=0.001
+nu=1.5e-05
